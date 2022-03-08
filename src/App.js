@@ -1,26 +1,25 @@
 import ListOfCharacters from "./components/ListOfCharacters"
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import Hola from "./components/Hola"
+import logo from './/logo.png'
 import OneCharacter from "./components/OneCharacter"
 import Navbar from "./components/Navbar"
 import Home from "./components/Home"
+import './/index.css'
 
 export const App = () => {
 
   return (
     <Router>
       <Navbar/>
-    <div>
+    <div className='container'>
       <Link to='/'>
-        <h1>Rick And Morty</h1>
+      <img src={logo}  alt='Logo de Rick And Morty' />
       </Link>
-      <Link to='/Hola'>
-          <h1>Hola</h1>
-          </Link> 
+
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='characters' element={<ListOfCharacters/>}></Route>
-        <Route path ='/Hola' element={<Hola/>}></Route>
+        
         <Route path='/characters/:charId' element={<OneCharacter />} />
       </Routes>
      </div>
